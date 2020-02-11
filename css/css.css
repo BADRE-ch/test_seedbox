@@ -1,0 +1,58 @@
+
+
+
+
+
+
+
+/* styles des menus déroulants
+           --------------------------- */
+
+        ul.sousmenu {
+            display: none; 
+        }    
+
+        ul.topmenu li {
+            position: relative; /* parent point de référence pour le positionnement des sous-menus */
+        }
+
+        /* le selecteur ci-apres veut dire:
+           si un li du topmenu est en état de survol et qu'il a un enfant ul, changer la propriété display a block */
+        ul.topmenu li:hover > ul {
+            display: block;
+            position: absolute; /* sorti du flux normal: la position n'affecte pas le top menu */
+            top: 2em; /* se place directement en dessous du top menu */
+        }
+
+        ul.sousmenu {
+            background: sienna;
+            width: auto; /* largeur n'est plus spécifiée et dépend du contenu */
+            height: auto; /* hauteur n'est plus spécifiée et dépend du contenu */
+        }
+
+        ul.sousmenu li{
+            float: none; /* enlever le float left */
+        }
+
+        ul.sousmenu li a {
+            border-bottom: 1px solid white;
+            padding: .2em 1em;
+            white-space: nowrap; /* le texte reste toujours sur une seule ligne */   
+        }
+
+        ul.sousmenu li:last-child a {
+            border-bottom: none; /* enlever le border du dernier li */
+        }
+
+        /* sélecteur ci-après pour les a du sous-menu seulement */
+        ul.sousmenu li a:hover {
+            background: hsla(50,30%,50%,.7);
+            text-decoration: none;
+            color: white;
+        }
+
+        ul.sousmenu a.active, ul.sousmenu a:hover.active {
+            background: tan;
+            color: floralwhite;
+            cursor: default;
+        }
